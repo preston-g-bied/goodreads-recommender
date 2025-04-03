@@ -3,7 +3,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-import datetime
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -15,7 +15,7 @@ class User(Base):
     username = Column(String(50), unique=True, nullable=False)
     email = Column(String(100), unique=True, nullable=False)
     password_hash = Column(String(255), nullable=False)
-    joined_date = Column(DateTime, default=datetime.now())
+    joined_date = Column(DateTime, default=datetime.now)
     profile_image = Column(String(255))
 
     # relationships
@@ -62,7 +62,7 @@ class Rating(Base):
     user_id = Column(Integer, ForeignKey('users.user_id'), primary_key=True)
     book_id = Column(Integer, ForeignKey('books.book_id'), primary_key=True)
     rating = Column(Integer, nullable=False)
-    timestamp = Column(DateTime, default=datetime.now())
+    timestamp = Column(DateTime, default=datetime.now)
 
     # relationships
     user = relationship('User', back_populates='ratings')
@@ -74,7 +74,7 @@ class ToRead(Base):
 
     user_id = Column(Integer, ForeignKey('users.user_id'), primary_key=True)
     book_id = Column(Integer, ForeignKey('books.book_id'), primary_key=True)
-    added_date = Column(DateTime, default=datetime.now())
+    added_date = Column(DateTime, default=datetime.now)
 
     # relationships
     user = relationship('User', back_populates='to_read')
@@ -111,7 +111,7 @@ class UserActivity(Base):
     user_id = Column(Integer, ForeignKey('users.user_id'))
     activity_type = Column(String(50))  # e.g., 'rate', 'add_to_read', 'view', etc.
     book_id = Column(Integer, ForeignKey('books.book_id'))
-    timestamp = Column(DateTime, default=datetime.now())
+    timestamp = Column(DateTime, default=datetime.now)
     details = Column(String(255))   # additional activity details if needed
 
 class Recommendation(Base):
@@ -123,7 +123,7 @@ class Recommendation(Base):
     book_id = Column(Integer, ForeignKey('books.book_id'))
     score = Column(Float)   # recommendation score/confidence
     source = Column(String(50)) # algorithm/source of the recommendation
-    generated_at = Column(DateTime, default=datetime.now())
+    generated_at = Column(DateTime, default=datetime.now)
 
 def create_tables(engine_uri):
     """Create all tables in the database"""
