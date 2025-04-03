@@ -55,7 +55,7 @@ class Book(Base):
     to_read = relationship('ToRead', back_populates='book')
     book_tags = relationship('BookTag', back_populates='book')
 
-class Ratings(Base):
+class Rating(Base):
     """Ratings model"""
     __tablename__ = 'ratings'
 
