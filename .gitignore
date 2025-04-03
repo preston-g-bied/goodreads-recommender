@@ -26,6 +26,10 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 
+# logs
+logs/*
+!logs/.gitkeep
+
 # Docker
 database/postgres-data/
 
