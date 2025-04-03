@@ -8,3 +8,134 @@
 2025-04-02 20:59:47,530 - __main__ - INFO - Successfully extracted 999912 book tags records
 2025-04-02 20:59:47,530 - __main__ - INFO - Extracting tags data from /Users/preston/goodreads-recommender/data/raw/tags.csv
 2025-04-02 20:59:47,552 - __main__ - INFO - Successfully extracted 34252 tags records
+2025-04-03 12:09:29,540 - __main__ - INFO - Starting ETL pipeline
+2025-04-03 12:09:29,541 - __main__ - INFO - Starting data extraction
+2025-04-03 12:09:29,541 - etl.extract - INFO - Extracting ratings data from /Users/preston/goodreads-recommender/data/raw/ratings.csv
+2025-04-03 12:09:30,458 - etl.extract - INFO - Successfully extracted 5976479 ratings records
+2025-04-03 12:09:30,458 - etl.extract - INFO - Extracting to-read data from /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-03 12:09:30,581 - etl.extract - INFO - Successfully extracted 912705 to-read records
+2025-04-03 12:09:30,581 - etl.extract - INFO - Extracting books data from /Users/preston/goodreads-recommender/data/raw/books.csv
+2025-04-03 12:09:30,645 - etl.extract - INFO - Successfully extracted 10000 books records
+2025-04-03 12:09:30,645 - etl.extract - INFO - Extracting book tags data from /Users/preston/goodreads-recommender/data/raw/book_tags.csv
+2025-04-03 12:09:30,829 - etl.extract - INFO - Successfully extracted 999912 book tags records
+2025-04-03 12:09:30,829 - etl.extract - INFO - Extracting tags data from /Users/preston/goodreads-recommender/data/raw/tags.csv
+2025-04-03 12:09:30,852 - etl.extract - INFO - Successfully extracted 34252 tags records
+2025-04-03 12:09:30,852 - __main__ - INFO - Data extraction completed
+2025-04-03 12:09:30,852 - __main__ - INFO - Starting data transformation
+2025-04-03 12:09:30,852 - etl.transform - INFO - Cleaning ratings data
+2025-04-03 12:09:31,810 - etl.transform - INFO - Ratings data cleaned: 5976479 records remaining
+2025-04-03 12:09:31,811 - etl.transform - INFO - Cleaning ratings data
+2025-04-03 12:09:31,898 - __main__ - ERROR - ETL pipeline failed: 'rating'
+2025-04-03 12:09:31,898 - __main__ - INFO - ETL pipeline failed after 2.36 seconds
+2025-04-03 12:13:38,382 - __main__ - INFO - Starting ETL pipeline
+2025-04-03 12:13:38,382 - __main__ - INFO - Starting data extraction
+2025-04-03 12:13:38,382 - etl.extract - INFO - Extracting ratings data from /Users/preston/goodreads-recommender/data/raw/ratings.csv
+2025-04-03 12:13:39,219 - etl.extract - INFO - Successfully extracted 5976479 ratings records
+2025-04-03 12:13:39,219 - etl.extract - INFO - Extracting to-read data from /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-03 12:13:39,335 - etl.extract - INFO - Successfully extracted 912705 to-read records
+2025-04-03 12:13:39,335 - etl.extract - INFO - Extracting books data from /Users/preston/goodreads-recommender/data/raw/books.csv
+2025-04-03 12:13:39,394 - etl.extract - INFO - Successfully extracted 10000 books records
+2025-04-03 12:13:39,394 - etl.extract - INFO - Extracting book tags data from /Users/preston/goodreads-recommender/data/raw/book_tags.csv
+2025-04-03 12:13:39,577 - etl.extract - INFO - Successfully extracted 999912 book tags records
+2025-04-03 12:13:39,577 - etl.extract - INFO - Extracting tags data from /Users/preston/goodreads-recommender/data/raw/tags.csv
+2025-04-03 12:13:39,600 - etl.extract - INFO - Successfully extracted 34252 tags records
+2025-04-03 12:13:39,601 - __main__ - INFO - Data extraction completed
+2025-04-03 12:13:39,601 - __main__ - INFO - Starting data transformation
+2025-04-03 12:13:39,601 - etl.transform - INFO - Cleaning ratings data
+2025-04-03 12:13:40,575 - etl.transform - INFO - Ratings data cleaned: 5976479 records remaining
+2025-04-03 12:13:40,576 - etl.transform - INFO - Cleaning to-read data
+2025-04-03 12:13:40,667 - etl.transform - INFO - To-read data cleaned: 912705 records remaining
+2025-04-03 12:13:40,668 - etl.transform - INFO - Cleaning books data
+2025-04-03 12:13:40,673 - etl.transform - WARNING - Found 52 invalid publication years
+2025-04-03 12:13:40,676 - __main__ - ERROR - ETL pipeline failed: 'author'
+2025-04-03 12:13:40,676 - __main__ - INFO - ETL pipeline failed after 2.29 seconds
+2025-04-03 12:14:28,157 - __main__ - INFO - Starting ETL pipeline
+2025-04-03 12:14:28,157 - __main__ - INFO - Starting data extraction
+2025-04-03 12:14:28,157 - etl.extract - INFO - Extracting ratings data from /Users/preston/goodreads-recommender/data/raw/ratings.csv
+2025-04-03 12:14:29,138 - etl.extract - INFO - Successfully extracted 5976479 ratings records
+2025-04-03 12:14:29,138 - etl.extract - INFO - Extracting to-read data from /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-03 12:14:29,258 - etl.extract - INFO - Successfully extracted 912705 to-read records
+2025-04-03 12:14:29,258 - etl.extract - INFO - Extracting books data from /Users/preston/goodreads-recommender/data/raw/books.csv
+2025-04-03 12:14:29,318 - etl.extract - INFO - Successfully extracted 10000 books records
+2025-04-03 12:14:29,318 - etl.extract - INFO - Extracting book tags data from /Users/preston/goodreads-recommender/data/raw/book_tags.csv
+2025-04-03 12:14:29,503 - etl.extract - INFO - Successfully extracted 999912 book tags records
+2025-04-03 12:14:29,503 - etl.extract - INFO - Extracting tags data from /Users/preston/goodreads-recommender/data/raw/tags.csv
+2025-04-03 12:14:29,525 - etl.extract - INFO - Successfully extracted 34252 tags records
+2025-04-03 12:14:29,525 - __main__ - INFO - Data extraction completed
+2025-04-03 12:14:29,525 - __main__ - INFO - Starting data transformation
+2025-04-03 12:14:29,525 - etl.transform - INFO - Cleaning ratings data
+2025-04-03 12:14:30,628 - etl.transform - INFO - Ratings data cleaned: 5976479 records remaining
+2025-04-03 12:14:30,629 - etl.transform - INFO - Cleaning to-read data
+2025-04-03 12:14:30,734 - etl.transform - INFO - To-read data cleaned: 912705 records remaining
+2025-04-03 12:14:30,734 - etl.transform - INFO - Cleaning books data
+2025-04-03 12:14:30,737 - etl.transform - WARNING - Found 52 invalid publication years
+2025-04-03 12:14:30,750 - etl.transform - INFO - Books data cleaned: 10000 records remaining
+2025-04-03 12:14:30,750 - etl.transform - INFO - Cleaning book tags data
+2025-04-03 12:14:30,865 - etl.transform - WARNING - Found 8 duplicate book tag entries
+2025-04-03 12:14:30,966 - etl.transform - INFO - Book tags data cleaned: 999904 records remaining
+2025-04-03 12:14:30,967 - etl.transform - INFO - Cleaning tags data
+2025-04-03 12:14:30,986 - etl.transform - INFO - Tags data cleaned: 34252 records remaining
+2025-04-03 12:14:30,987 - __main__ - INFO - Data transformation completed
+2025-04-03 12:14:30,987 - __main__ - INFO - Saving data to CSV
+2025-04-03 12:14:30,987 - etl.load - INFO - Saving cleaned data to CSV files
+2025-04-03 12:14:35,624 - etl.load - INFO - Saved clean ratings to /Users/preston/goodreads-recommender/data/processed/ratings_clean.csv
+2025-04-03 12:14:36,190 - etl.load - INFO - Saved clean to-read to /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-03 12:14:36,321 - etl.load - INFO - Saved clean books to /Users/preston/goodreads-recommender/data/processed/books_clean.csv
+2025-04-03 12:14:37,196 - etl.load - INFO - Saved clean book tags to /Users/preston/goodreads-recommender/data/processed/book_tags_clean.csv
+2025-04-03 12:14:37,229 - etl.load - INFO - Saved clean tags to /Users/preston/goodreads-recommender/data/processed/tags_clean.csv
+2025-04-03 12:14:37,230 - __main__ - INFO - Data saved to CSV
+2025-04-03 12:14:37,230 - __main__ - INFO - Loading data to database
+2025-04-03 12:14:37,230 - etl.load - INFO - Loading data to database
+2025-04-03 12:14:37,295 - etl.load - INFO - Database tables created
+2025-04-03 12:14:37,514 - etl.load - INFO - Loaded 10000 books into database
+2025-04-03 12:15:03,164 - etl.load - INFO - Loaded 5976479 ratings into database
+2025-04-03 12:15:05,617 - etl.load - INFO - Loaded 912705 to-read entries into database
+2025-04-03 12:15:05,741 - etl.load - INFO - Loaded 34252 tags into database
+2025-04-03 12:15:09,848 - etl.load - INFO - Loaded 999904 book tags into database
+2025-04-03 12:15:09,848 - __main__ - INFO - Data loaded to database
+2025-04-03 12:15:09,848 - __main__ - INFO - ETL pipeline completed successfully in 41.69 seconds
+2025-04-03 12:22:49,424 - __main__ - INFO - Starting ETL pipeline
+2025-04-03 12:22:49,424 - __main__ - INFO - Starting data extraction
+2025-04-03 12:22:49,424 - etl.extract - INFO - Extracting ratings data from /Users/preston/goodreads-recommender/data/raw/ratings.csv
+2025-04-03 12:22:50,367 - etl.extract - INFO - Successfully extracted 5976479 ratings records
+2025-04-03 12:22:50,367 - etl.extract - INFO - Extracting to-read data from /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-03 12:22:50,483 - etl.extract - INFO - Successfully extracted 912705 to-read records
+2025-04-03 12:22:50,483 - etl.extract - INFO - Extracting books data from /Users/preston/goodreads-recommender/data/raw/books.csv
+2025-04-03 12:22:50,539 - etl.extract - INFO - Successfully extracted 10000 books records
+2025-04-03 12:22:50,540 - etl.extract - INFO - Extracting book tags data from /Users/preston/goodreads-recommender/data/raw/book_tags.csv
+2025-04-03 12:22:50,724 - etl.extract - INFO - Successfully extracted 999912 book tags records
+2025-04-03 12:22:50,724 - etl.extract - INFO - Extracting tags data from /Users/preston/goodreads-recommender/data/raw/tags.csv
+2025-04-03 12:22:50,746 - etl.extract - INFO - Successfully extracted 34252 tags records
+2025-04-03 12:22:50,746 - __main__ - INFO - Data extraction completed
+2025-04-03 12:22:50,747 - __main__ - INFO - Starting data transformation
+2025-04-03 12:22:50,747 - etl.transform - INFO - Cleaning ratings data
+2025-04-03 12:22:51,805 - etl.transform - INFO - Ratings data cleaned: 5976479 records remaining
+2025-04-03 12:22:51,806 - etl.transform - INFO - Cleaning to-read data
+2025-04-03 12:22:51,903 - etl.transform - INFO - To-read data cleaned: 912705 records remaining
+2025-04-03 12:22:51,903 - etl.transform - INFO - Cleaning books data
+2025-04-03 12:22:51,904 - etl.transform - WARNING - Found 52 invalid publication years
+2025-04-03 12:22:51,915 - etl.transform - INFO - Books data cleaned: 10000 records remaining
+2025-04-03 12:22:51,915 - etl.transform - INFO - Cleaning book tags data
+2025-04-03 12:22:52,029 - etl.transform - WARNING - Found 8 duplicate book tag entries
+2025-04-03 12:22:52,125 - etl.transform - INFO - Book tags data cleaned: 999904 records remaining
+2025-04-03 12:22:52,125 - etl.transform - INFO - Cleaning tags data
+2025-04-03 12:22:52,142 - etl.transform - INFO - Tags data cleaned: 34252 records remaining
+2025-04-03 12:22:52,143 - __main__ - INFO - Data transformation completed
+2025-04-03 12:22:52,143 - __main__ - INFO - Saving data to CSV
+2025-04-03 12:22:52,143 - etl.load - INFO - Saving cleaned data to CSV files
+2025-04-03 12:22:57,274 - etl.load - INFO - Saved clean ratings to /Users/preston/goodreads-recommender/data/processed/ratings_clean.csv
+2025-04-03 12:22:57,866 - etl.load - INFO - Saved clean to-read to /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-03 12:22:57,984 - etl.load - INFO - Saved clean books to /Users/preston/goodreads-recommender/data/processed/books_clean.csv
+2025-04-03 12:22:58,819 - etl.load - INFO - Saved clean book tags to /Users/preston/goodreads-recommender/data/processed/book_tags_clean.csv
+2025-04-03 12:22:58,851 - etl.load - INFO - Saved clean tags to /Users/preston/goodreads-recommender/data/processed/tags_clean.csv
+2025-04-03 12:22:58,852 - __main__ - INFO - Data saved to CSV
+2025-04-03 12:22:58,852 - __main__ - INFO - Loading data to database
+2025-04-03 12:22:58,852 - etl.load - INFO - Loading data to database
+2025-04-03 12:22:58,961 - etl.load - INFO - Database tables created
+2025-04-03 12:22:59,179 - etl.load - INFO - Loaded 10000 books into database
+2025-04-03 12:23:23,617 - etl.load - INFO - Loaded 5976479 ratings into database
+2025-04-03 12:23:26,068 - etl.load - INFO - Loaded 912705 to-read entries into database
+2025-04-03 12:23:26,183 - etl.load - INFO - Loaded 34252 tags into database
+2025-04-03 12:23:30,077 - etl.load - INFO - Loaded 999904 book tags into database
+2025-04-03 12:23:30,077 - __main__ - INFO - Data loaded to database
+2025-04-03 12:23:30,077 - __main__ - INFO - ETL pipeline completed successfully in 40.65 seconds
