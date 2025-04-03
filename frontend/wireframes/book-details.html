@@ -1,0 +1,219 @@
+<!-- frontend/wireframes/book-details.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Title - Goodbooks</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Goodbooks</a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Browse</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Breadcrumb Navigation -->
+        <div style="margin: 20px 0; font-size: 14px;">
+            <a href="index.html">Home</a> &gt; 
+            <a href="search.html">Browse</a> &gt; 
+            <a href="book-details.html">Book Title</a>
+        </div>
+
+        <!-- Book Detail Section -->
+        <div class="book-detail">
+            <!-- Book Cover -->
+            <div class="book-detail-cover">
+                <div style="width: 200px; height: 300px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Book Cover</div>
+            </div>
+
+            <!-- Book Information -->
+            <div class="book-detail-info">
+                <h1>Book Title</h1>
+                <div class="book-detail-meta">
+                    <p>By <a href="search.html?author=Author%20Name">Author Name</a> | Published in 2020</p>
+                    <p>★★★★☆ 4.2 · 1,245 ratings</p>
+                </div>
+
+                <!-- Book Actions -->
+                <div class="book-actions">
+                    <button class="btn btn-primary">Add to Reading List</button>
+                    <button class="btn btn-secondary">Rate This Book</button>
+                </div>
+
+                <!-- Book Description -->
+                <div>
+                    <h3>Description</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p>
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+
+                <!-- Book Details -->
+                <div>
+                    <h3>Details</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd; width: 30%;"><strong>ISBN:</strong></td>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;">978-3-16-148410-0</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;"><strong>Language:</strong></td>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;">English</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;"><strong>Pages:</strong></td>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;">328</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;"><strong>Publisher:</strong></td>
+                            <td style="padding: 8px 0; border-bottom: 1px solid #ddd;">Example Publishing</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Book Tags -->
+                <div style="margin-top: 20px;">
+                    <h3>Tags</h3>
+                    <ul class="tags-list">
+                        <li class="tag-item"><a href="search.html?tag=fiction" class="tag-link">Fiction</a></li>
+                        <li class="tag-item"><a href="search.html?tag=fantasy" class="tag-link">Fantasy</a></li>
+                        <li class="tag-item"><a href="search.html?tag=adventure" class="tag-link">Adventure</a></li>
+                        <li class="tag-item"><a href="search.html?tag=magic" class="tag-link">Magic</a></li>
+                    </ul>
+                </div>
+
+                <!-- Rate This Book Form -->
+                <div class="rating-form">
+                    <h3>Rate this book</h3>
+                    <form>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1">★</label>
+                        </div>
+                        <textarea style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;" rows="4" placeholder="Write your review (optional)"></textarea>
+                        <button type="submit" class="btn btn-primary">Submit Rating</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Similar Books Section -->
+        <section>
+            <div class="section-heading">
+                <h2 class="section-title">Similar Books</h2>
+                <a href="search.html?similar=123" class="section-link">View more</a>
+            </div>
+            <div class="books-grid">
+                <!-- Similar Book Cards -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Similar Book 1</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.2</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Similar Book 2</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.1</div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Similar Book 3</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.0</div>
+                    </div>
+                </div>
+
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Similar Book 4</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 3.9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>About Goodbooks</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Discover</h3>
+                <ul class="footer-links">
+                    <li><a href="search.html">Browse Books</a></li>
+                    <li><a href="search.html?view=tags">Tags</a></li>
+                    <li><a href="search.html?sort=popular">Popular Books</a></li>
+                    <li><a href="search.html?sort=recent">New Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Reading Challenges</a></li>
+                    <li><a href="#">Discussion Forums</a></li>
+                    <li><a href="#">Book Clubs</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Goodbooks. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!-- frontend/wireframes/search.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Goodbooks</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Goodbooks</a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Browse</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Search Form -->
+        <section class="search-container">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Search for books, authors, or tags..." value="fantasy">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </section>
+
+        <!-- Search Filters -->
+        <div style="display: flex; margin: 20px 0; gap: 20px; flex-wrap: wrap;">
+            <!-- Filter By Rating -->
+            <div>
+                <label for="rating-filter" style="font-weight: bold; margin-right: 10px;">Min Rating:</label>
+                <select id="rating-filter" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+                    <option value="0">Any</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="4" selected>4+ Stars</option>
+                    <option value="4.5">4.5+ Stars</option>
+                </select>
+            </div>
+
+            <!-- Filter By Year -->
+            <div>
+                <label for="year-filter" style="font-weight: bold; margin-right: 10px;">Year:</label>
+                <select id="year-filter" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+                    <option value="0">Any</option>
+                    <option value="2020">2020+</option>
+                    <option value="2010">2010+</option>
+                    <option value="2000">2000+</option>
+                    <option value="1990">1990+</option>
+                </select>
+            </div>
+
+            <!-- Sort By -->
+            <div>
+                <label for="sort-filter" style="font-weight: bold; margin-right: 10px;">Sort By:</label>
+                <select id="sort-filter" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+                    <option value="relevance" selected>Relevance</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+
+            <!-- View Type Toggle -->
+            <div style="margin-left: auto;">
+                <button style="padding: 8px; background: none; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
+                    Grid View
+                </button>
+                <button style="padding: 8px; background: none; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">
+                    List View
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Filters Display -->
+        <div style="margin-bottom: 20px;">
+            <span style="font-size: 14px; color: #666;">Active filters:</span>
+            <span style="display: inline-block; padding: 4px 8px; background: #e9ecef; border-radius: 4px; margin: 0 5px; font-size: 14px;">
+                "fantasy" <a href="#" style="margin-left: 5px; color: #666;">✕</a>
+            </span>
+            <span style="display: inline-block; padding: 4px 8px; background: #e9ecef; border-radius: 4px; margin: 0 5px; font-size: 14px;">
+                4+ Stars <a href="#" style="margin-left: 5px; color: #666;">✕</a>
+            </span>
+            <a href="#" style="font-size: 14px; margin-left: 10px;">Clear All</a>
+        </div>
+
+        <!-- Search Results Counter -->
+        <div style="margin-bottom: 20px; font-size: 14px; color: #666;">
+            Showing 1-20 of 142 results for "fantasy"
+        </div>
+
+        <!-- Search Results Grid -->
+        <div class="books-grid">
+            <!-- Search Result Cards -->
+            <!-- Repeated book cards for search results -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 1</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★★ 4.8</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 2</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.5</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 3</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.4</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 4</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.2</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 5</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.1</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 6</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.0</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 7</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.3</div>
+                </div>
+            </div>
+            
+            <div class="book-card">
+                <div class="book-cover">
+                    <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Fantasy Book 8</h3>
+                    <p class="book-author">Author Name</p>
+                    <div class="book-rating">★★★★☆ 4.4</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div style="display: flex; justify-content: center; margin: 40px 0; gap: 10px;">
+            <a href="#" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; text-decoration: none; color: #666;">&laquo;</a>
+            <a href="#" style="padding: 8px 12px; border: 1px solid #4a69bd; border-radius: 4px; background-color: #4a69bd; color: white; text-decoration: none;">1</a>
+            <a href="#" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; text-decoration: none; color: #666;">2</a>
+            <a href="#" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; text-decoration: none; color: #666;">3</a>
+            <span style="padding: 8px 12px; color: #666;">...</span>
+            <a href="#" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; text-decoration: none; color: #666;">7</a>
+            <a href="#" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; text-decoration: none; color: #666;">&raquo;</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>About Goodbooks</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Discover</h3>
+                <ul class="footer-links">
+                    <li><a href="search.html">Browse Books</a></li>
+                    <li><a href="search.html?view=tags">Tags</a></li>
+                    <li><a href="search.html?sort=popular">Popular Books</a></li>
+                    <li><a href="search.html?sort=recent">New Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Reading Challenges</a></li>
+                    <li><a href="#">Discussion Forums</a></li>
+                    <li><a href="#">Book Clubs</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Goodbooks. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

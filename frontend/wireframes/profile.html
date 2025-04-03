@@ -1,0 +1,267 @@
+<!-- frontend/wireframes/profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Goodbooks</title>
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Goodbooks</a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Browse</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-image">
+                <!-- Placeholder for profile image -->
+            </div>
+            <div>
+                <h1>Username</h1>
+                <p>Member since January 2025</p>
+            </div>
+        </div>
+
+        <!-- Profile Stats -->
+        <div class="profile-stats">
+            <div class="stat-item">
+                <div class="stat-value">42</div>
+                <div class="stat-label">Books Read</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">15</div>
+                <div class="stat-label">To Read</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">4.2</div>
+                <div class="stat-label">Avg Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Reviews</div>
+            </div>
+        </div>
+
+        <!-- Reading List / To-Read List -->
+        <section>
+            <div class="section-heading">
+                <h2 class="section-title">My Reading List</h2>
+                <a href="#" class="section-link">View all</a>
+            </div>
+            <div class="books-grid">
+                <!-- Book Cards for Reading List -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Book Title 1</h3>
+                        <p class="book-author">Author Name</p>
+                        <button style="background: none; border: none; color: #eb4d4b; cursor: pointer; font-size: 14px;">Remove</button>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Book Title 2</h3>
+                        <p class="book-author">Author Name</p>
+                        <button style="background: none; border: none; color: #eb4d4b; cursor: pointer; font-size: 14px;">Remove</button>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Book Title 3</h3>
+                        <p class="book-author">Author Name</p>
+                        <button style="background: none; border: none; color: #eb4d4b; cursor: pointer; font-size: 14px;">Remove</button>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Book Title 4</h3>
+                        <p class="book-author">Author Name</p>
+                        <button style="background: none; border: none; color: #eb4d4b; cursor: pointer; font-size: 14px;">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Ratings -->
+        <section>
+            <div class="section-heading">
+                <h2 class="section-title">My Ratings</h2>
+                <a href="#" class="section-link">View all</a>
+            </div>
+            <div class="books-grid">
+                <!-- Book Cards with Ratings -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Rated Book 1</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★★ 5.0</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Rated Book 2</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.0</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Rated Book 3</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★☆☆ 3.0</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Rated Book 4</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★★ 5.0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personalized Recommendations -->
+        <section>
+            <div class="section-heading">
+                <h2 class="section-title">Recommended For You</h2>
+                <a href="#" class="section-link">Refresh</a>
+            </div>
+            <div class="books-grid">
+                <!-- Book Cards for Recommendations -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Recommended Book 1</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.3</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Recommended Book 2</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.5</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Recommended Book 3</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★★ 4.8</div>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100px; height: 150px; background-color: #ccc; display: flex; justify-content: center; align-items: center; color: #666;">Cover</div>
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">Recommended Book 4</h3>
+                        <p class="book-author">Author Name</p>
+                        <div class="book-rating">★★★★☆ 4.2</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Settings Button -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="#" class="btn btn-secondary">Edit Profile Settings</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>About Goodbooks</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Discover</h3>
+                <ul class="footer-links">
+                    <li><a href="search.html">Browse Books</a></li>
+                    <li><a href="search.html?view=tags">Tags</a></li>
+                    <li><a href="search.html?sort=popular">Popular Books</a></li>
+                    <li><a href="search.html?sort=recent">New Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Reading Challenges</a></li>
+                    <li><a href="#">Discussion Forums</a></li>
+                    <li><a href="#">Book Clubs</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Goodbooks. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
