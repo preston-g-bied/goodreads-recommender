@@ -1,0 +1,10 @@
+2025-04-02 20:59:46,227 - __main__ - INFO - Extracting ratings data from /Users/preston/goodreads-recommender/data/raw/ratings.csv
+2025-04-02 20:59:47,151 - __main__ - INFO - Successfully extracted 5976479 ratings records
+2025-04-02 20:59:47,152 - __main__ - INFO - Extracting to-read data from /Users/preston/goodreads-recommender/data/raw/to_read.csv
+2025-04-02 20:59:47,282 - __main__ - INFO - Successfully extracted 912705 to-read records
+2025-04-02 20:59:47,282 - __main__ - INFO - Extracting books data from /Users/preston/goodreads-recommender/data/raw/books.csv
+2025-04-02 20:59:47,342 - __main__ - INFO - Successfully extracted 10000 books records
+2025-04-02 20:59:47,342 - __main__ - INFO - Extracting book tags data from /Users/preston/goodreads-recommender/data/raw/book_tags.csv
+2025-04-02 20:59:47,530 - __main__ - INFO - Successfully extracted 999912 book tags records
+2025-04-02 20:59:47,530 - __main__ - INFO - Extracting tags data from /Users/preston/goodreads-recommender/data/raw/tags.csv
+2025-04-02 20:59:47,552 - __main__ - INFO - Successfully extracted 34252 tags records
