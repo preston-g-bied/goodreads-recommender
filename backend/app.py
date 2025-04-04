@@ -10,18 +10,36 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from flask import Flask
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 
-from backend.config import config
+from backend.config import config_by_name, config
 
 # initialize the SQLAlchemy instance
 db = SQLAlchemy()
 
 # initialize JWT Manager
 jwt = JWTManager()
+
+@jwt.user_identity_loader
+def user_identity_loader(identity):
+    """Convert user identity to a JSON serializable format"""
+    return identity
+
+@jwt.user_lookup_loader
+def user_lookup_callback(_jwt_header, jwt_data):
+    """Extract user identity from JWT data"""
+    return jwt_data['sub']
+
+@jwt.invalid_token_loader
+def invalid_token_callback(error):
+    return jsonify({"success": False, "message": "Invalid token", "error": str(error)}), 401
+
+@jwt.unauthorized_loader
+def unauthorized_callback(error):
+    return jsonify({"success": False, "message": "No authorization token provided"}), 401
 
 def create_app(config_name=None):
     """Factory function to create and configure Flask application"""
@@ -34,7 +52,7 @@ def create_app(config_name=None):
     app = Flask(__name__)
 
     # load configuration
-    app.config.from_object(config)
+    app.config.from_object(config_by_name[config_name])
 
     # enable CORS
     CORS(app)

@@ -27,6 +27,10 @@ class Config:
     # JWT settings
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY', SECRET_KEY)
     JWT_ACCESS_TOKEN_EXPIRES = 3600 # 1 hour
+    JWT_TOKEN_LOCATION = ['headers']
+    JWT_HEADER_NAME = 'Authorization'
+    JWT_HEADER_TYPE = 'Bearer'
+    JWT_JSON_KEY = 'user_id'
 
     # API settings
     API_TITLE = 'Goodbooks API'
