@@ -62,6 +62,7 @@ class Rating(Base):
     user_id = Column(Integer, ForeignKey('users.user_id'), primary_key=True)
     book_id = Column(Integer, ForeignKey('books.book_id'), primary_key=True)
     rating = Column(Integer, nullable=False)
+    review = Column(String(2000))
     timestamp = Column(DateTime, default=datetime.now)
 
     # relationships

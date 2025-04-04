@@ -16,11 +16,13 @@ def register_routes(app):
     from .books import books_bp
     from .users import users_bp
     from .auth import auth_bp
+    from .recommendations import recommendations_bp
 
     # register blueprints with URL prefixes
     app.register_blueprint(books_bp, url_prefix=f'{api_prefix}/books')
     app.register_blueprint(users_bp, url_prefix=f'{api_prefix}/users')
     app.register_blueprint(auth_bp, url_prefix=f'{api_prefix}/auth')
+    app.register_blueprint(recommendations_bp, url_prefix=f'{api_prefix}/recommendations')
 
     # register error handlers
     from backend.api.utils.responses import handle_not_found, handle_servor_error

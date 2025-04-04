@@ -6,8 +6,9 @@ User-related routes
 
 from flask import Blueprint, request, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from sqlalchemy import func, desc
 
-from database.models import User, Rating, Book, ToRead
+from database.models import User, Rating, Book, ToRead, Tag, BookTag, UserActivity
 from backend.app import db
 from backend.api.utils.responses import success_response, error_response
 from backend.api.utils.auth import hash_password, check_password
@@ -288,3 +289,135 @@ def remove_from_to_read(book_id):
         db.session.rollback()
         current_app.logger.error(f'Error removing from to-read list: {str(e)}')
         return error_response('Failed to remove book from to-read list', 500)
+    
+@users_bp.route('/stats', methods=['GET'])
+@jwt_required()
+def get_user_stats():
+    """Get detailed statistics for the current user"""
+    try:
+        # get current user ID from JWT
+        current_user = get_jwt_identity()
+        user_id = current_user.get('user_id')
+
+        # get user from database
+        user = User.query.get(user_id)
+        if not user:
+            return error_response('User not found', 404)
+        
+        # get ratings count and average
+        ratings_stats = db.session.query(
+            func.count(Rating.rating).label('count'),
+            func.avg(Rating.rating).label('average')
+        ).filter(Rating.user_id == user_id).first()
+
+        # get ratings distribution
+        ratings_dist = db.session.query(
+            Rating.rating,
+            func.count(Rating.rating).label('count')
+        ).filter(Rating.user_id == user_id) \
+         .group_by(Rating.rating) \
+         .all()
+        
+        ratings_distribution = {
+            f'{rating}_star': count for rating, count in ratings_dist
+        }
+
+        # get to-read count
+        to_read_count = db.session.query(func.count(ToRead.book_id)) \
+                                  .filter(ToRead.user_id == user_id).scalar()
+        
+        # get most-read authors
+        most_read_authors = db.session.query(
+            Book.authors,
+            func.count(Rating.book_id).label('count')
+        ).join(Rating, Rating.book_id == Book.book_id) \
+         .filter(Rating.user_id == user_id) \
+         .group_by(Book.authors) \
+         .order_by(desc('count')) \
+         .limit(5) \
+         .all()
+        
+        # get most-read genres (tags)
+        most_read_tags = db.session.query(
+            Tag.tag_name,
+            func.count(Rating.book_id).label('count')
+        ).join(BookTag, Tag.tag_id == BookTag.tag_id) \
+         .join(Book, BookTag.goodreads_book_id == Book.goodreads_book_id) \
+         .join(Rating, Rating.book_id == Book.book_id) \
+         .filter(Rating.user_id == user_id) \
+         .group_by(Tag.tag_name) \
+         .order_by(desc('count')) \
+         .limit(5) \
+         .all()
+        
+        # format response
+        stats = {
+            'ratings': {
+                'count': ratings_stats.count if ratings_stats.count else 0,
+                'average': float(ratings_stats.average) if ratings_stats.average else 0,
+                'distribution': ratings_distribution
+            },
+            'to_read_count': to_read_count,
+            'most_read_authors': [
+                {'author': author, 'count': count}
+                for author, count in most_read_authors
+            ],
+            'most_read_tags': [
+                {'tag': tag, 'count': count}
+                for tag, count in most_read_tags
+            ]
+        }
+
+        return success_response(stats)
+    
+    except Exception as e:
+        current_app.logger.error(f'Error getting user stats: {str(e)}')
+        return error_response('Failed to retrieve user statistics', 500)
+    
+@users_bp.route('/activity', methods=['GET'])
+@jwt_required()
+def get_user_activity():
+    """Get recent user activity"""
+    try:
+        # get current user ID from JWT
+        current_user = get_jwt_identity()
+        user_id = current_user.get('user_id')
+
+        # get query parameters
+        page = request.args.get('page', 1, type=int)
+        per_page = request.args.get('per_page', 20, type=int)
+
+        # get user activity with book information
+        activity_page = db.session.query(UserActivity, Book) \
+                                  .join(Book, UserActivity.book_id == Book.book_id) \
+                                  .filter(UserActivity.user_id == user_id) \
+                                  .order_by(UserActivity.timestamp.desc()) \
+                                  .paginate(page=page, per_page=per_page, error_out=False)
+        
+        # format response
+        activity_data = [{
+            'activity_id': activity.activity_id,
+            'activity_type': activity.activity_type,
+            'book_id': book.book_id,
+            'book_title': book.title,
+            'book_author': book.authors,
+            'book_image': book.small_image_url,
+            'timestamp': activity.timestamp.isoformat() if activity.timestamp else None,
+            'details': activity.details
+        } for activity, book in activity_page.items]
+
+        return success_response({
+            'activities': activity_data,
+            'pagination': {
+                'total': activity_page.total,
+                'pages': activity_page.pages,
+                'current_page': activity_page.page,
+                'per_page': activity_page.per_page,
+                'has_next': activity_page.has_next,
+                'has_prev': activity_page.has_prev
+            }
+        })
+    
+    except Exception as e:
+        current_app.logger.error(f'Error getting user activity: {str(e)}')
+        return error_response('Failed to retrieve user activity', 500)

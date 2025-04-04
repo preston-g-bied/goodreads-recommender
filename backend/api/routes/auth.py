@@ -1,4 +1,4 @@
-# backend/api/routs/auth.py
+# backend/api/routes/auth.py
 
 """
 Authentication routes
