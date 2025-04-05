@@ -1,0 +1,51 @@
+/* frontend/goodbooks-client/src/components/common/StarRating.css */
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .star {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .star.filled {
+    color: #f6b93b;
+  }
+  
+  .star.empty {
+    color: #dee2e6;
+  }
+  
+  .star.interactive:hover {
+    color: #f6b93b;
+  }
+  
+  /* Style when user hovers on a star */
+  .star-rating:hover .star.interactive {
+    color: #dee2e6;
+  }
+  
+  .star-rating .star.interactive:hover ~ .star.interactive {
+    color: #dee2e6;
+  }
+  
+  .star-rating:hover .star.interactive:hover {
+    color: #f6b93b;
+  }
+  
+  /* Fix for the default implementation which has a bug */
+  .star {
+    padding: 0 2px;
+  }
+  
+  .star.filled, .star.full {
+    color: #f6b93b;
+  }
+  
+  .star.empty {
+    color: #dee2e6;
+  }

@@ -2,15 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getPopularBooks } from '../../services/bookService';
-import { getTags } from '../../services/bookService';
+import { getPopularBooks, getTags } from '../../services/bookService';
 import { getPopularRecommendations } from '../../services/recommendationService';
 import { useAuth } from '../../context/AuthContext';
 
 // import components
-import SearchBar from './SearchBar'
-import BookCard from '../common/BookCard'
-import './HomePage.css'
+import SearchBar from './SearchBar';
+import BookCard from '../common/BookCard';
+import './HomePage.css';
 
 const HomePage = () => {
     const [popularBooks, setPopularBooks] = useState([]);
@@ -31,22 +30,36 @@ const HomePage = () => {
                 const popularResponse = await getPopularBooks(5);
                 if (popularResponse.success) {
                     setPopularBooks(popularResponse.data);
+                } else {
+                    // If API fails, use dummy data for development
+                    setPopularBooks(getDummyBooks('Popular Book'));
                 }
 
                 // fetch top-rated books
                 const recommendationsResponse = await getPopularRecommendations(5);
                 if (recommendationsResponse.success) {
                     setTopRatedBooks(recommendationsResponse.data);
+                } else {
+                    // If API fails, use dummy data for development
+                    setTopRatedBooks(getDummyBooks('Top Rated Book'));
                 }
 
                 // fetch popular tags
                 const tagsResponse = await getTags({ sort_by: 'popularity', per_page: 12 });
                 if (tagsResponse.success) {
                     setPopularTags(tagsResponse.data.tags);
+                } else {
+                    // If API fails, use dummy data for development
+                    setPopularTags(getDummyTags());
                 }
             } catch (err) {
                 console.error('Error fetching home page data:', err);
                 setError('Failed to load content. Please try again later.');
+                
+                // Use dummy data for development
+                setPopularBooks(getDummyBooks('Popular Book'));
+                setTopRatedBooks(getDummyBooks('Top Rated Book'));
+                setPopularTags(getDummyTags());
             } finally {
                 setLoading(false);
             }
@@ -54,6 +67,31 @@ const HomePage = () => {
 
         fetchHomeData();
     }, []);
+
+    // Function to generate dummy book data for development
+    const getDummyBooks = (prefix) => {
+        return Array.from({ length: 5 }, (_, i) => ({
+            book_id: i + 1,
+            title: `${prefix} ${i + 1}`,
+            authors: `Author ${i + 1}`,
+            average_rating: 4 + (i % 10) / 10,
+            image_url: null,
+            publication_year: 2020 - i
+        }));
+    };
+
+    // Function to generate dummy tag data for development
+    const getDummyTags = () => {
+        const tagNames = ['Fantasy', 'Science Fiction', 'Romance', 'Mystery', 'Thriller', 
+                         'Horror', 'Historical Fiction', 'Non-Fiction', 'Biography', 'Self-Help', 
+                         'Young Adult', 'Children'];
+        
+        return tagNames.map((name, i) => ({
+            tag_id: i + 1,
+            tag_name: name,
+            book_count: 100 - i * 5
+        }));
+    };
 
     const handleSearch = (query) => {
         navigate(`/search?q=${encodeURIComponent(query)}`);

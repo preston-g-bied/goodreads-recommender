@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './BookCard.css'
+import './BookCard.css';
 
 const BookCard = ({ book }) => {
     const {
@@ -31,7 +31,7 @@ const BookCard = ({ book }) => {
         }
 
         // add empty stars
-        const emptyStars = 5 - stars.length
+        const emptyStars = 5 - stars.length;
         for (let i = 0; i < emptyStars; i++) {
             stars.push(<span key={`empty-${i}`} className="star empty">☆</span>);
         }

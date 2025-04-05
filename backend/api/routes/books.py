@@ -252,7 +252,7 @@ def get_book(book_id):
         
         # format response
         book_data = {
-            'book_id': book.bool_id,
+            'book_id': book.book_id,
             'goodreads_book_id': book.goodreads_book_id,
             'work_id': book.work_id,
             'title': book.title,

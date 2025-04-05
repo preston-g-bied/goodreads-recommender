@@ -1,7 +1,8 @@
 // frontend/goodbooks-client/src/services/api.js
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1'
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
+console.log('Using API URL:', API_URL);
 
 // create axios instance with base URL
 const api = axios.create({
@@ -17,10 +18,13 @@ api.interceptors.request.use(
         const token = localStorage.getItem('token');
         if (token) {
             config.headers['Authorization'] =  `Bearer ${token}`;
+            console.log('Adding auth token to request');
         }
+        console.log('Sending request to:', config.url);
         return config;
     },
     (error) => {
+        console.error('Request error:', error);
         return Promise.reject(error);
     }
 );
@@ -28,9 +32,16 @@ api.interceptors.request.use(
 // response interceptor for handling errors
 api.interceptors.response.use(
     (response) => {
+        console.log('Response recieved from:', response.config.url);
         return response;
     },
     (error) => {
+        console.error('API Error:', error.response ? error.response.status : 'Unknown error');
+        if (error.response) {
+            console.error('Error details:', error.response.data);
+        }
+
+        
         // handle authentication errors
         if (error.response && error.response.status === 401) {
             localStorage.removeItem('token');

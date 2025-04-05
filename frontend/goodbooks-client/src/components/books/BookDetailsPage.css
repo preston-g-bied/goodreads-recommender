@@ -1,0 +1,263 @@
+/* frontend/goodbooks-client/src/components/books/BookDetailsPage.css */
+
+.book-detail-page {
+    margin-bottom: 40px;
+  }
+  
+  .breadcrumb {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .breadcrumb a {
+    color: #4a69bd;
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  .success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .book-detail {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    margin: 30px 0;
+  }
+  
+  .book-detail-cover {
+    background-color: #f5f6fa;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-detail-cover img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .book-cover-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ecef;
+    color: #6c757d;
+    font-size: 16px;
+  }
+  
+  .book-detail-info h1 {
+    margin-top: 0;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .book-detail-meta {
+    margin-bottom: 20px;
+    color: #6c757d;
+  }
+  
+  .book-detail-meta p {
+    margin: 5px 0;
+  }
+  
+  .book-detail-meta a {
+    color: #4a69bd;
+    text-decoration: none;
+  }
+  
+  .book-detail-meta a:hover {
+    text-decoration: underline;
+  }
+  
+  .rating-stars {
+    display: inline-flex;
+    margin-right: 5px;
+  }
+  
+  .star {
+    color: #f6b93b;
+    margin-right: 1px;
+  }
+  
+  .star.empty {
+    color: #dee2e6;
+  }
+  
+  .rating-value {
+    font-weight: bold;
+  }
+  
+  .book-actions {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-primary {
+    background-color: #4a69bd;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3f5ca8;
+  }
+  
+  .btn-secondary {
+    background-color: #e9ecef;
+    color: #495057;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #dee2e6;
+  }
+  
+  .book-tags {
+    margin: 20px 0;
+  }
+  
+  .book-tags h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .book-details-section {
+    margin: 20px 0;
+  }
+  
+  .book-details-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .book-details-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .book-details-table tr {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .book-details-table td {
+    padding: 8px 0;
+  }
+  
+  .book-details-table td:first-child {
+    width: 30%;
+    font-weight: bold;
+  }
+  
+  .rating-form {
+    margin-top: 30px;
+  }
+  
+  .rating-form h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  .review-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  .reviews-list {
+    margin-top: 20px;
+  }
+  
+  .review-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .review-user {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .review-rating {
+    display: flex;
+    margin-right: 10px;
+  }
+  
+  .review-date {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  .review-text {
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .book-detail {
+      grid-template-columns: 1fr;
+    }
+    
+    .book-detail-cover {
+      height: 350px;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .book-actions {
+      flex-direction: column;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+  }

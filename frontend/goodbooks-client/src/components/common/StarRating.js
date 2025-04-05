@@ -32,7 +32,7 @@ const StarRating = ({ rating = 0, onRatingChange, interactive = true }) => {
                 return (
                     <span
                         key={index}
-                        className={`star ${index <= currentRating ? 'fillex' : 'empty'} ${interactive ? 'interactive' : ''}`}
+                        className={`star ${index <= currentRating ? 'filled' : 'empty'} ${interactive ? 'interactive' : ''}`}
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={handleMouseLeave}
                         onClick={() => handleClick(index)}

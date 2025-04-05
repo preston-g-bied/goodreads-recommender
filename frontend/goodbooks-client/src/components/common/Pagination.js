@@ -1,6 +1,7 @@
 // frontend/goodbooks-client/src/components/common/Pagination.js
 
 import React from 'react';
+import './Pagination.css';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   // Generate array of page numbers to display
