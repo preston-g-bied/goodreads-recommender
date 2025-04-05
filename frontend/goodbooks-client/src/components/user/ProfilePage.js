@@ -108,7 +108,7 @@ const ProfilePage = () => {
             {/* Tab Navigation */}
             <div className="profile-tabs">
                 <button
-                    className={`tab-button ${activeTab === 'ratings' ? 'avtive' : ''}`}
+                    className={`tab-button ${activeTab === 'ratings' ? 'active' : ''}`}
                     onClick={() => setActiveTab('ratings')}
                 >
                     My Ratings

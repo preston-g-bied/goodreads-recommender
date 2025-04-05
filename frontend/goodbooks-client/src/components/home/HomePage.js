@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getPopularBooks } from '../../services/bookService';
 import { getTags } from '../../services/bookService';
 import { getPopularRecommendations } from '../../services/recommendationService';
-import { userAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 // import components
 import SearchBar from './SearchBar'

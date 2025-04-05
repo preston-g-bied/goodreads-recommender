@@ -60,7 +60,7 @@ const BookCard = ({ book }) => {
                     <h3 className="book-title">{title}</h3>
                     <p className="book-author">{authors}</p>
                     {average_rating && renderStars(average_rating)}
-                    {publication_uear && (
+                    {publication_year && (
                         <p className="book-year">{publication_year}</p>
                     )}
                 </div>
