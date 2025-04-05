@@ -147,7 +147,7 @@ const BookDetailsPage = () => {
                 {/* Book Cover */}
                 <div className="book-detail-cover">
                     {book.image_url ? (
-                        <img src={book.img_url} alt={`Cover of ${book.title}`} />
+                        <img src={book.image_url} alt={`Cover of ${book.title}`} />
                     ) : (
                         <div className="book-cover-placeholder">No Cover Available</div>
                     )}

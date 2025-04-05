@@ -59,7 +59,7 @@ const ProfilePage = () => {
     }, []);
 
     if (loading) {
-        return <div classname="loading">Loading...</div>;
+        return <div className="loading">Loading...</div>;
     }
 
     if (error) {

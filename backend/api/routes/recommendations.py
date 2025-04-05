@@ -22,7 +22,7 @@ def get_popular_recommendations():
 
         # check if user is authenticated
         auth_header = request.headers.get('Authorization')
-        if auth_header and auth_header.statswith('Bearer '):
+        if auth_header and auth_header.startsWith('Bearer '):
             from flask_jwt_extended import decode_token
             try:
                 token = auth_header.split('Bearer ')[1]
