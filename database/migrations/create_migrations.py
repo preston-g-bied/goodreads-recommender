@@ -8,7 +8,6 @@ import logging
 from datetime import datetime
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
-from database.models import create_tables
 from backend.config import config
 
 # set up logging
@@ -62,6 +61,74 @@ def add_review_to_ratings(conn):
     cursor.execute('ALTER TABLE ratings ADD COLUMN review TEXT')
     conn.commit()
 
+def add_timestamp_to_ratings(conn):
+    """
+    Migration to add timestamp column to ratings table
+    Uses the table recreation approach to work around SQLite limitations
+    """
+    cursor = conn.cursor()
+    
+    # Step 1: Create a new table with the desired schema
+    cursor.execute('''
+    CREATE TABLE new_ratings (
+        user_id INTEGER NOT NULL,
+        book_id INTEGER NOT NULL,
+        rating INTEGER NOT NULL,
+        review TEXT,
+        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (user_id, book_id),
+        FOREIGN KEY (user_id) REFERENCES users (user_id),
+        FOREIGN KEY (book_id) REFERENCES books (book_id)
+    )
+    ''')
+    
+    # Step 2: Copy data from the old table to the new table
+    cursor.execute('''
+    INSERT INTO new_ratings (user_id, book_id, rating, review)
+    SELECT user_id, book_id, rating, review FROM ratings
+    ''')
+    
+    # Step 3: Drop the old table
+    cursor.execute('DROP TABLE ratings')
+    
+    # Step 4: Rename the new table to the original name
+    cursor.execute('ALTER TABLE new_ratings RENAME TO ratings')
+    
+    conn.commit()
+
+def add_added_date_to_to_read(conn):
+    """
+    Migration to add added_date column to to_read table
+    Uses the table recreation approach to work around SQLite limitations
+    """
+    cursor = conn.cursor()
+    
+    # Step 1: Create a new table with the desired schema
+    cursor.execute('''
+    CREATE TABLE new_to_read (
+        user_id INTEGER NOT NULL,
+        book_id INTEGER NOT NULL,
+        added_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (user_id, book_id),
+        FOREIGN KEY (user_id) REFERENCES users (user_id),
+        FOREIGN KEY (book_id) REFERENCES books (book_id)
+    )
+    ''')
+    
+    # Step 2: Copy data from the old table to the new table
+    cursor.execute('''
+    INSERT INTO new_to_read (user_id, book_id)
+    SELECT user_id, book_id FROM to_read
+    ''')
+    
+    # Step 3: Drop the old table
+    cursor.execute('DROP TABLE to_read')
+    
+    # Step 4: Rename the new table to the original name
+    cursor.execute('ALTER TABLE new_to_read RENAME TO to_read')
+    
+    conn.commit()
+
 def run_migrations():
     """Run all pending migrations"""
     # get database path from config
@@ -81,7 +148,9 @@ def run_migrations():
 
     # list of migrations to apply
     migrations = [
-        ('add_review_to_ratings', add_review_to_ratings)
+        ('add_review_to_ratings', add_review_to_ratings),
+        ('add_timestamp_to_ratings', add_timestamp_to_ratings),
+        ('add_added_date_to_to_read', add_added_date_to_to_read)
     ]
 
     # apply pending migrations

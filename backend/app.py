@@ -26,11 +26,15 @@ jwt = JWTManager()
 @jwt.user_identity_loader
 def user_identity_loader(identity):
     """Convert user identity to a JSON serializable format"""
-    return identity
+    # Make sure we always store user_id as a simple value
+    if isinstance(identity, dict) and 'user_id' in identity:
+        return str(identity['user_id'])
+    return str(identity)  # Ensure it's a string
 
 @jwt.user_lookup_loader
 def user_lookup_callback(_jwt_header, jwt_data):
     """Extract user identity from JWT data"""
+    # Return the subject directly - should be the user_id
     return jwt_data['sub']
 
 @jwt.invalid_token_loader

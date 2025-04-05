@@ -22,7 +22,7 @@ def get_profile():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get user from database
         user = User.query.get(user_id)
@@ -59,7 +59,7 @@ def update_profile():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get user from database
         user = User.query.get(user_id)
@@ -129,7 +129,7 @@ def get_user_ratings():
     try:
         # Get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get query parameters
         page = request.args.get('page', 1, type=int)
@@ -178,7 +178,7 @@ def get_to_read_list():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
         
         # get query parameters
         page = request.args.get('page', 1, type=int)
@@ -227,7 +227,7 @@ def add_to_read(book_id):
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # check if book exists
         book = Book.query.get(book_id)
@@ -268,7 +268,7 @@ def remove_from_to_read(book_id):
     try:
         # get a current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # find to-read entry
         to_read = ToRead.query.filter_by(
@@ -297,7 +297,7 @@ def get_user_stats():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get user from database
         user = User.query.get(user_id)
@@ -381,7 +381,7 @@ def get_user_activity():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get query parameters
         page = request.args.get('page', 1, type=int)

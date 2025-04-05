@@ -42,7 +42,7 @@ const BookDetailsPage = () => {
                 // fetch similar books
                 const similarResponse = await getSimilarBooks(bookId);
                 if (similarResponse.success) {
-                    getSimilarBooks(similarResponse.data);
+                    setSimilarBooks(similarResponse.data);
                 }
 
                 // fetch book reviews

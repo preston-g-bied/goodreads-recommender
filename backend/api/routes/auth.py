@@ -97,7 +97,7 @@ def get_current_user():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get user from database
         user = User.query.get(user_id)

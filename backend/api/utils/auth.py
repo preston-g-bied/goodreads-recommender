@@ -21,8 +21,7 @@ def check_password(password_hash, password):
 
 def generate_token(user_id):
     """Generate an access token for the user"""
-    identity = {'user_id': user_id}
-    return create_access_token(identity=identity)
+    return create_access_token(identity=user_id)
 
 def get_current_user_id():
     """Get the current authenticated user ID from the JWT"""

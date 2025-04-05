@@ -27,7 +27,11 @@ def get_popular_recommendations():
             try:
                 token = auth_header.split('Bearer ')[1]
                 token_data = decode_token(token)
-                user_id = token_data['sub']['user_id']
+                # Get user_id directly from subject
+                user_id = token_data['sub']
+                # Convert to int if needed
+                if isinstance(user_id, str) and user_id.isdigit():
+                    user_id = int(user_id)
             except Exception as e:
                 current_app.logger.warning(f'Failed to decode token: {str(e)}')
 
@@ -71,7 +75,7 @@ def get_personalized_recommendations():
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get query parameters
         limit = request.args.get('limit', 10, type=int)

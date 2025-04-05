@@ -367,7 +367,7 @@ def update_book_rating(book_id):
     try:
         # get current user ID from JWT
         current_user = get_jwt_identity()
-        user_id = current_user.get('user_id')
+        user_id = get_jwt_identity()
 
         # get JSON data from request
         data = request.get_json()
