@@ -114,7 +114,7 @@ const ProfilePage = () => {
                     My Ratings
                 </button>
                 <button
-                    className={`tab-button ${activeTab == 'to-read' ? 'active' : ''}`}
+                    className={`tab-button ${activeTab === 'to-read' ? 'active' : ''}`}
                     onClick={() => setActiveTab('to-read')}
                 >
                     Reading List

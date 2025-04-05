@@ -20,7 +20,7 @@ import Footer from './components/common/Footer';
 import ProtectedRoute from './components/common/ProtectedRoute';
 
 // import CSS
-import './assets/css/Ap.css';
+import './assets/css/App.css';
 
 function App() {
     return (
